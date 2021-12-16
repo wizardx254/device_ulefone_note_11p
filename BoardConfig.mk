@@ -129,6 +129,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
     libpuresoftkeymasterdevice
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2021-06-05
@@ -177,6 +180,3 @@ TW_INCLUDE_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 USE_FSCRYPT := true
 TARGET_HW_DISK_ENCRYPTION := false
-
-$(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so
-$(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
